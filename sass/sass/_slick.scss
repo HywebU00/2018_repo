@@ -30,17 +30,15 @@
     background: #fff;
     padding: 30px 0px 50px;
     clear: both;
-
     .imgOuter {
         // @include aspect-ratio(4, 3);
         max-height: auto;
         position: relative;
-
         a {
             display: block;
             width: 80%;
             margin: 0px auto;
-            padding:.5em;
+            padding: .5em;
             border: 1px solid #CCC;
             @include box-sizing;
             // max-height: 300px;
@@ -84,7 +82,6 @@
             background-size: 80%;
         }
     }
-
     .slick-dots li {
         width: 10px;
         height: 10px;
@@ -97,7 +94,6 @@
         }
     }
 }
-
 
 
 /*  slick-lightbox  */
@@ -318,5 +314,14 @@
     }
     .slick-dots {
         display: none !important;
+    }
+}
+
+.serviceSlider {
+    .slick-prev {
+        left: 10px;
+    }
+    .slick-next {
+        right: 10px;
     }
 }

@@ -50,8 +50,9 @@
             padding-top: 260px;
             background: url(../images/building_bg.jpg) no-repeat center top;
             background-size: contain;
+            @include gutter(40px);
         }
-        @include gutter(40px);
+        @include gutter(60px);
         .tabSet {
             max-width: 100%;
             background: #FFF;
@@ -190,6 +191,43 @@
             @include screen('mobile') {
                 margin-top: 0em;
             }
+            .reportSlider {
+                @include screen('xs_mobile') {
+                    padding-bottom: 1em;
+                    margin-bottom: 1em;
+                }
+                .slick-prev {
+                    left: 0;
+                }
+                .slick-next {
+                    right: 0;
+                }
+                .slick-dots {
+                    @include screen('mobile') {
+                        bottom: 5px;
+                    }
+                    li {
+                        width: 12px;
+                        height: 12px;
+                        margin: 0 8px;
+                        &.slick-active {
+                            button {
+                                &:before {
+                                    background: $primaryColor;
+                                }
+                            }
+                        }
+                        button {
+                            width: 12px;
+                            height: 12px;
+                            &:before {
+                                width: 12px;
+                                height: 12px;
+                            }
+                        }
+                    }
+                }
+            }
             .img-container {
                 @include aspect-ratio(4, 3);
                 background: #DDD;
@@ -263,9 +301,9 @@
         @include gradient(rgba(237, 240, 242, 1), rgba(237, 240, 242, 0), vertical);
     }
     .container {
-        @include gutter;
+        @include gutter(50px);
         @include screen('mobile') {
-            @include gutter(0);
+            @include gutter(30px);
         }
     }
     .col {
@@ -289,30 +327,31 @@
             margin: 0px auto 1em;
             float: none;
         }
-        h2 {
-            font-size: 1.25em;
+    }
+    h2 {
+        font-size: 1.25em;
+    }
+    .item {
+        position: relative;
+        border: 1px solid #EEE;
+        border-top: 2px solid $secondaryColor;
+        text-align: center;
+        min-height: 430px;
+        @include box-sizing;
+        padding: .5em 2em;
+        padding-bottom: 4em;
+        background: #FFF;
+        transition: .3s ease-out;
+        //max-width: 300px;
+        margin: 0px 5px;
+        @include screen('xs_mobile') {
+            min-height: 380px;
+            border: 1px solid #CCC;
         }
-        .item {
-            border: 1px solid #EEE;
-            border-top: 2px solid $secondaryColor;
-            text-align: center;
-            min-height: 430px;
-            @include box-sizing;
-            padding: .5em 2em;
-            padding-bottom: 4em;
-            background: #FFF;
-            transition: .3s ease-out;
-            max-width: 300px;
-            margin: 0px auto;
+        &:hover {
+            @include box-shadow(0px 0px 8px rgba(0, 0, 0, .2));
             @include screen('mobile') {
-                min-height: 380px;
-                border: 1px solid #CCC;
-            }
-            &:hover {
-                @include box-shadow(0px 0px 8px rgba(0, 0, 0, .2));
-                @include screen('mobile') {
-                    box-shadow: none;
-                }
+                box-shadow: none;
             }
         }
         a.more {
@@ -333,120 +372,120 @@
                 }
             }
         }
-        .seminar {
-            background: url(../images/service_bg_01.jpg) no-repeat center bottom #FFF;
-            background-size: contain !important;
-            >a {
-                display: block;
+    }
+    .seminar {
+        background: url(../images/service_bg_01.jpg) no-repeat center bottom #FFF;
+        background-size: 100% !important;
+        >a {
+            display: block;
+        }
+        .location {
+            width: 80px;
+            height: 80px;
+            margin: 0px 1em .5em 0; // float: none;
+            display: block;
+            @include border-radius(50%);
+            background: $secondaryColor;
+            text-align: center;
+            color: #FFF;
+            line-height: 80px;
+            @include text-overflow;
+            margin: 0 auto .5em;
+            @include screen('mobile') {
+                margin: 0px auto .5em;
             }
-            .location {
-                width: 80px;
-                height: 80px;
-                margin: 0px 1em .5em 0; // float: none;
-                display: block;
-                @include border-radius(50%);
-                background: $secondaryColor;
-                text-align: center;
-                color: #FFF;
-                line-height: 80px;
-                @include text-overflow;
-                margin: 0 auto .5em;
-                @include screen('mobile') {
-                    margin: 0px auto .5em;
-                }
+        }
+        time {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.5em;
+            font-style: italic;
+            margin-bottom: .5em;
+            overflow: hidden;
+            display: block;
+            text-align: center;
+            padding-top: .5em;
+        }
+        h3 {
+            margin-top: .3em;
+            clear: both;
+            background: rgba(255, 255, 255, .75);
+            border-left: 2px solid $lightColor;
+            border-right: 2px solid $lightColor;
+            padding: .8em;
+            line-height: 1.65em;
+            @include clearfix;
+            @include screen('mobile') {
+                padding: .5em;
             }
-            time {
-                font-family: "Times New Roman", Times, serif;
-                font-size: 1.5em;
-                font-style: italic;
-                margin-bottom: .5em;
-                overflow: hidden;
-                display: block;
-                text-align: center;
-                padding-top: .5em;
-            }
-            h3 {
-                margin-top: .3em;
-                clear: both;
-                background: rgba(255, 255, 255, .75);
-                border-left: 2px solid $lightColor;
-                border-right: 2px solid $lightColor;
-                padding: .8em;
-                line-height: 1.65em;
-                @include clearfix;
-                @include screen('mobile') {
-                    padding: .5em;
+        }
+    }
+    .book {
+        .img-container {
+            border: 1px solid #ddd;
+            width: 170px;
+            margin: 0px auto;
+            @include aspect-ratio(10, 14);
+            height: auto;
+        }
+        h3 {
+            font-size: .938em;
+            color: #666;
+        }
+        a {
+            &:hover,
+            &:focus {
+                h3 {
+                    color: $linkColor;
                 }
             }
         }
-        .book {
-            .img-container {
-                border: 1px solid #ddd;
-                width: 170px;
-                margin: 0px auto;
-                @include aspect-ratio(10, 14);
-                height: auto;
-            }
-            h3 {
-                font-size: .938em;
-                color: #666;
-            }
-            a {
-                &:hover,
-                &:focus {
-                    h3 {
-                        color: $linkColor;
+    }
+    .businessman {
+        background: url(../images/service_bg_02.jpg) no-repeat center bottom #FFF;
+        background-size: 100% !important;
+        ul {
+            @include li-reset;
+            margin-bottom: 2em;
+            li {
+                border-bottom: 1px solid #DDD;
+                text-align: left;
+                a {
+                    display: block;
+                    @include text-overflow;
+                    padding: .3em 0;
+                    position: relative;
+                    font-size: .938em;
+                    padding-left: 1em;
+                    &:before {
+                        position: absolute;
+                        left: 0px;
+                        top: 12px;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        content: "";
+                        background: #666;
                     }
                 }
             }
         }
-        .businessman {
-            background: url(../images/service_bg_02.jpg) no-repeat center bottom #FFF;
-            background-size: contain !important;
-            ul {
-                @include li-reset;
-                margin-bottom: 2em;
-                li {
-                    border-bottom: 1px solid #DDD;
-                    text-align: left;
-                    a {
-                        display: block;
-                        @include text-overflow;
-                        padding: .3em 0;
-                        position: relative;
-                        font-size: .938em;
-                        padding-left: 1em;
-                        &:before {
-                            position: absolute;
-                            left: 0px;
-                            top: 12px;
-                            width: 6px;
-                            height: 6px;
-                            border-radius: 50%;
-                            content: "";
-                            background: #666;
-                        }
-                    }
-                }
-            }
+    }
+    .photo {
+        .img-container {
+            border: 1px solid #ddd;
+            @include aspect-ratio(4, 3);
+            width: 100%;
+            height: auto;
         }
-        .photo {
-            .img-container {
-                border: 1px solid #ddd;
-                @include aspect-ratio(4, 3);
-                width: 100%;
-                height: auto;
-            }
-            h3 {
-                font-size: .938em;
-                color: #666;
-            }
-            a {
-                &:hover,
-                &:focus {
-                    h3 {
-                        color: $linkColor;
-                    }
+        h3 {
+            font-size: .938em;
+            color: #666;
+        }
+        a {
+            &:hover,
+            &:focus {
+                h3 {
+                    color: $linkColor;
                 }
             }
         }

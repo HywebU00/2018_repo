@@ -3,12 +3,28 @@
 $(function() {
     $('.singleSlider').slick({
         dots: true,
-        arrow: true,
+        arrows: true,
         infinite: true,
         speed: 500,
         autoplay: true,
         fade: true,
         cssEase: 'ease'
+    });
+    $('.reportSlider').slick({
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        autoplay: false,
+        fade: true,
+        cssEase: 'ease',
+        responsive: [{
+            breakpoint: 400,
+            settings: {
+                dots: true,
+                arrows: false
+            }
+        }]
     });
     $('.adSlider .container').slick({
         dots: false,
@@ -17,7 +33,7 @@ $(function() {
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        arrow: true,
+        arrows: true,
         responsive: [{
             breakpoint: 1024,
             settings: {
@@ -39,6 +55,40 @@ $(function() {
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2,
+                arrows: true
+            }
+        }]
+    });
+    $('.serviceSlider .container').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrow: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false,
+                arrows: true
+            }
+        }, {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: true
+            }
+        }, {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
                 arrows: true
             }
         }]
@@ -102,7 +152,7 @@ $(function() {
         arrows: true,
         focusOnSelect: true,
         infinite: true
-        // centerMode: true,
+            // centerMode: true,
     });
     // 進階查詢
     $(window).bind('resize load', function(e) {
