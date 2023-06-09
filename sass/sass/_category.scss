@@ -1,33 +1,32 @@
 .category {
-    text-align: left;
-    @include box-sizing;
-    margin: 1em auto;
-    ul {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-        li {
-            margin: 0px .5em .5em 0px;
-            display: block;
-            float: left;
-        }
+  text-align: left;
+  @include box-sizing;
+  margin: 1em auto;
+  ul {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    li {
+      margin: 0px 0.5em 0.5em 0px;
+      display: block;
+      float: left;
     }
-    a {
-        @include border-radius(6px);
-        padding:.3em 1em;
-        font-weight: 400;
-        display: block;
-        white-space: nowrap;
-        font-size: .938em;
-        color: $color-word;
-        background-color: rgb(247, 247, 247); // Old browsers
-        @include filter-gradient(#f7f7f7, #eaeaea, vertical); // IE6-9
-        @include background-image(linear-gradient(top, rgba(247, 247, 247, 1) 0%, rgba(234, 234, 234, 1) 100%));
-        border: #ccc solid 1px;
-        &:hover,
-        &:focus {
-         @include gradient(rgba(250, 250, 250, 1), rgba(240, 240, 240, 1), vertical);
-         border: rgba(145, 145, 145, 1) solid 1px;
-     }
- }
+  }
+  a {
+    @include border-radius(6px);
+    padding: 0.3em 1em;
+    font-weight: 400;
+    display: block;
+    white-space: nowrap;
+    font-size: 0.938em;
+    color: $color-word;
+    background-color: rgb(247, 247, 247); // Old browsers
+    background-image: linear-gradient(top, rgba(247, 247, 247, 1) 0%, rgba(234, 234, 234, 1) 100%);
+    border: #ccc solid 1px;
+    &:hover,
+    &:focus {
+      @include gradient(rgba(250, 250, 250, 1), rgba(240, 240, 240, 1), vertical);
+      border: rgba(145, 145, 145, 1) solid 1px;
+    }
+  }
 }
